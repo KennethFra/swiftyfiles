@@ -1,3 +1,3 @@
-struct SwiftyFiles {
+public struct SwiftyFiles {
     var text = "Hello, World!"
 }
