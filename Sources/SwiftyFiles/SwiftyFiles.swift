@@ -117,6 +117,9 @@ public protocol FileActions
 public class mPDFFileManager {
     public let `default` = mPDFFileManager()
 
+
+    public init() {}
+    
     public func write(data: Data, to path: AppDirectory, withName name: String) -> Bool {
         return false
     }
