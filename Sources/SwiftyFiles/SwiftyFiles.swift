@@ -182,7 +182,7 @@ protocol FileActions
 //
 //} // end extension AppFileManipulation
 
-class File {
+class mPDFFile {
     let root: AppDirectory
     let parentPath: String
     let filename: String
@@ -203,7 +203,7 @@ class File {
     }
 }
 
-class Directory: File {
+class mPDFDirectory: mPDFFile {
     lazy var urls: [URL]? = {
         let options: FileManager.DirectoryEnumerationOptions = [.skipsHiddenFiles]
         let keys: [URLResourceKey] = [
