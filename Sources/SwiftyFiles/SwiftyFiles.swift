@@ -115,9 +115,9 @@ public protocol FileActions
 }
 
 public class mPDFFileManager {
-    let `default` = mPDFFileManager()
+    public let `default` = mPDFFileManager()
 
-    func write(data: Data, to path: AppDirectory, withName name: String) -> Bool {
+    public func write(data: Data, to path: AppDirectory, withName name: String) -> Bool {
         return false
     }
 
@@ -127,7 +127,7 @@ public class mPDFFileManager {
 
 //    func move(withName name: String, inDirectory: AppDirectory, toDirectory directory: AppDirectory) -> Bool
 
-    func copy(from: mPDFFile, to: mPDFFile) throws {
+    public func copy(from: mPDFFile, to: mPDFFile) throws {
         try FileManager.default.copyItem(at: from.url, to: to.url)
     }
 }
