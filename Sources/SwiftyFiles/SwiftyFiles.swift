@@ -6,10 +6,13 @@ public enum AppDirectory : String
     case documents = "Documents"
     case inbox = "Inbox"
     case library = "Library"
+    case bundle = "Bundle"
     case temp = "tmp"
 
     var url: URL {
         switch self {
+        case .bundle:
+            return bundle
         case .mPDFDocuments:
             return mPDFDocuments
         case .documents:
@@ -21,6 +24,10 @@ public enum AppDirectory : String
         case .temp:
             return temp
         }
+    }
+
+    var bundle: URL {
+        Bundle.main.bundleURL
     }
 
     var mPDFDocuments: URL {
