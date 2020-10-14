@@ -114,7 +114,7 @@ public protocol FileActions
     func copy(withName name: String, inDirectory: AppDirectory, toDirectory directory: AppDirectory) -> Bool
 }
 
-class mPDFFileManager {
+public class mPDFFileManager {
     let `default` = mPDFFileManager()
 
     func write(data: Data, to path: AppDirectory, withName name: String) -> Bool {
