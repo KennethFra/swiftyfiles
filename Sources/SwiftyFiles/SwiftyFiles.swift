@@ -1,6 +1,6 @@
 import Foundation
 
-enum AppDirectory : String
+public enum AppDirectory : String
 {
     case mPDFDocuments = "Library/Documents"
     case documents = "Documents"
@@ -44,7 +44,7 @@ enum AppDirectory : String
     }
 }
 
-extension URL {
+public extension URL {
     var isWritable: Bool {
         FileManager.default.isWritableFile(atPath: path)
     }
@@ -90,7 +90,7 @@ extension URL {
 }
 
 
-protocol FileActions
+public protocol FileActions
 {
     func create()
 
@@ -182,12 +182,12 @@ protocol FileActions
 //
 //} // end extension AppFileManipulation
 
-class mPDFFile {
+public  class mPDFFile {
     let root: AppDirectory
     let parentPath: String
     let filename: String
 
-    init(root: AppDirectory, parentPath: String, filename: String = "") {
+    public init(root: AppDirectory, parentPath: String, filename: String = "") {
         self.root = root
         self.parentPath = parentPath
         self.filename = filename
@@ -203,7 +203,7 @@ class mPDFFile {
     }
 }
 
-class mPDFDirectory: mPDFFile {
+public class mPDFDirectory: mPDFFile {
     lazy var urls: [URL]? = {
         let options: FileManager.DirectoryEnumerationOptions = [.skipsHiddenFiles]
         let keys: [URLResourceKey] = [
@@ -223,7 +223,7 @@ class mPDFDirectory: mPDFFile {
         }
     }()
 
-    init(root: AppDirectory, parentPath: String = "") {
+    public init(root: AppDirectory, parentPath: String = "") {
         super.init(root: root, parentPath: parentPath)
     }
 
