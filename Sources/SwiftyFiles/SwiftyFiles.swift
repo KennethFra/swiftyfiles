@@ -114,80 +114,23 @@ public protocol FileActions
     func copy(withName name: String, inDirectory: AppDirectory, toDirectory directory: AppDirectory) -> Bool
 }
 
-//extension AppFileManipulation
-//{
-//    func write(data: Data, to path: AppDirectory, withName name: String) -> Bool
-//    {
-//        let filePath = path.url.appendingPathComponent(name)
-//
-//        let rawData: Data? = containing.data(using: .utf8)
-//        return FileManager.default.createFile(atPath: filePath, contents: rawData, attributes: nil)
+class mPDFFileManager {
+    let `default` = mPDFFileManager()
+
+    func write(data: Data, to path: AppDirectory, withName name: String) -> Bool {
+        return false
+    }
+
+//    func rename(at path: AppDirectory, with oldName: String, to newName: String) -> Bool {
+//        return bool
 //    }
-//
-//    func readFile(at path: AppDirectories, withName name: String) -> String
-//    {
-//        let filePath = getURL(for: path).path + "/" + name
-//        let fileContents = FileManager.default.contents(atPath: filePath)
-//        let fileContentsAsString = String(bytes: fileContents!, encoding: .utf8)
-//        print(fileContentsAsString!)
-//        return fileContentsAsString!
-//    }
-//
-//    func deleteFile(at path: AppDirectories, withName name: String) -> Bool
-//    {
-//        let filePath = buildFullPath(forFileName: name, inDirectory: path)
-//        try! FileManager.default.removeItem(at: filePath)
-//        return true
-//    }
-//
-//    func renameFile(at path: AppDirectories, with oldName: String, to newName: String) -> Bool
-//    {
-//        let oldPath = getURL(for: path).appendingPathComponent(oldName)
-//        let newPath = getURL(for: path).appendingPathComponent(newName)
-//        try! FileManager.default.moveItem(at: oldPath, to: newPath)
-//
-//        // highlights the limitations of using return values
-//        return true
-//    }
-//
-//    func moveFile(withName name: String, inDirectory: AppDirectories, toDirectory directory: AppDirectories) -> Bool
-//    {
-//        let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
-//        let destinationURL = buildFullPath(forFileName: name, inDirectory: directory)
-//        // warning: constant 'success' inferred to have type '()', which may be unexpected
-//        // let success =
-//        try! FileManager.default.moveItem(at: originURL, to: destinationURL)
-//        return true
-//    }
-//
-//    func copyFile(withName name: String, inDirectory: AppDirectories, toDirectory directory: AppDirectories) -> Bool
-//    {
-//        let originURL = buildFullPath(forFileName: name, inDirectory: inDirectory)
-//        let destinationURL = buildFullPath(forFileName: name+"1", inDirectory: directory)
-//        try! FileManager.default.copyItem(at: originURL, to: destinationURL)
-//        return true
-//    }
-//
-//    func read(_ bytes: Int, startingAt offset: Int = 0, from file: String, at directory: AppDirectories) throws -> String? // STEP 0
-//    {
-//        var daa: String? = nil
-//        var fileHandle: FileHandle
-//        // STEP 1
-//        var url: URL = buildFullPath(forFileName: file, inDirectory: directory)
-//
-//        do
-//        {
-//        }
-//        catch // STEP 8
-//        {
-//            throw FileSystemError(type: .Read, verboseDescription: "Error during read file.", inMethodName: #function, inFileName: #file, atLineNumber: #line)
-//        }
-//
-//        return textRead
-//
-//    } // end func readBytes
-//
-//} // end extension AppFileManipulation
+
+//    func move(withName name: String, inDirectory: AppDirectory, toDirectory directory: AppDirectory) -> Bool
+
+    func copy(from: mPDFFile, to: mPDFFile) throws {
+        try FileManager.default.copyItem(at: from.url, to: to.url)
+    }
+}
 
 public  class mPDFFile {
     let root: AppDirectory
