@@ -145,7 +145,7 @@ public  class mPDFFile {
         self.filename = filename
     }
 
-    var url: URL {
+    public var url: URL {
         return URL(fileURLWithPath: parentPath, relativeTo: root.url).appendingPathComponent(filename)
     }
 
