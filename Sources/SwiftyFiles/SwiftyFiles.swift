@@ -179,12 +179,12 @@ public class mPDFDirectory: mPDFFile {
         super.init(root: root, parentPath: parentPath)
     }
 
-    func create() throws {
+    public func create() throws {
         let url = root.url.appendingPathComponent(parentPath)
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
     }
 
-    func search(filter: ((URL)->Bool)) -> [URL] {
+    public func search(filter: ((URL)->Bool)) -> [URL] {
         guard let urls = urls else { return [] }
         return urls.filter(filter)
     }
